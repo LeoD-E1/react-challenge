@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TableData from './components/TableData.js'
+import TableData from './components/TableData.js';
+import './styles/global.css';
 
 const App = () => {
   // Get the data from json placeholder
@@ -19,25 +20,25 @@ const App = () => {
   return (
 
     <div className="container" >
-      <h1>CRUD Blog Client</h1>
+      <h1>CRUD Blog Client</h1><br />
       <div className="row">
 
-        <div className="col-md-6">
+        <div className="col-md-6 capsule">
           <div className="flex-large">
-            <h2>Add Item</h2>
+            <h2 className="title">Add or dit item</h2>
           </div>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-6 capsule">
           <div className="flex-large">
-            <h2>View Items</h2>
+            <h2 className="title">View Items</h2>
             <TableData data={data} />
           </div>
         </div>
 
         <div className="col-md-6">
           <div className="flex-large">
-            <h2>Detail</h2>
+            <h2 className="title">Detail</h2>
           </div>
         </div>
       </div>

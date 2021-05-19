@@ -1,5 +1,4 @@
-table {
-  text-align: center;
-  max-height: 90vh;
+#principal {
+  max-height: 80vh;
   overflow-y: scroll;
 }
