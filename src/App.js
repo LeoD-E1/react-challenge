@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DropdownController from './components/DropdownController';
 import TableData from './components/TableData.js';
 import './styles/global.css';
 
@@ -15,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     bringData();
-  });
+  }, []);
 
   return (
 
@@ -26,6 +27,7 @@ const App = () => {
         <div className="col-md-6 capsule">
           <div className="flex-large">
             <h2 className="title">Add or dit item</h2>
+            <DropdownController />
           </div>
         </div>
 
