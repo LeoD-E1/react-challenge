@@ -1,0 +1,5 @@
+table {
+  text-align: center;
+  max-height: 90vh;
+  overflow-y: scroll;
+}

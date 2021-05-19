@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import TableData from './components/TableData.js'
 
-function App() {
+const App = () => {
+
+  const url = "https://jsonplaceholder.typicode.com/posts"
+  const [data, setData] = useState([]);
+  //const url = "../../assets/data.json";
+  const bringData = async () => {
+    const res = await fetch(url);
+    const json = await res.json();
+    setData(json)
+  };
+
+  useEffect(() => {
+    bringData();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <div className="container" >
+      <h1>CRUD Blog Client</h1>
+      <div className="flex-row">
+        <div className="flex-large">
+          <h2>Add Item</h2>
+        </div>
+        <div className="flex-large">
+          <h2>Detail</h2>
+        </div>
+        <div className="flex-large">
+          <h2>View Items</h2>
+          <TableData data={data} />
+        </div>
+      </div>
+    </div >
   );
 }
 
