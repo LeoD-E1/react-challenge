@@ -7,7 +7,7 @@ const TableData = (props) => {
   return (
     <Fragment>
       <div className="row">
-        <div className="col-md-7">
+        <div className="col-md-12">
           {props.data.length > 0 ? (
             props.data.map(item => (
               <div key={item.id} className="row">
@@ -30,7 +30,6 @@ const TableData = (props) => {
           )
           }
         </div>
-        <div className="col-md-5"></div>
       </div>
     </Fragment >
   );
