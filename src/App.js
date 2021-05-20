@@ -4,19 +4,26 @@ import TableData from './components/TableData.js';
 import './styles/global.css';
 
 const App = () => {
-  // Get the data from json placeholder
-  const url = "https://jsonplaceholder.typicode.com/posts"
-  const [data, setData] = useState([]);
+
+  const [items, setItems] = useState({});
+
   //const url = "../../assets/data.json";
   const bringData = async () => {
-    const res = await fetch(url);
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const json = await res.json();
-    setData(json)
+    setItems(json)
   };
 
   useEffect(() => {
     bringData();
   }, []);
+
+  const addItems = (item) => {
+    setItems({
+      ...items,
+      item
+    })
+  }
 
   return (
 
@@ -26,21 +33,20 @@ const App = () => {
 
         <div className="col-md-6 capsule">
           <div className="flex-large">
-            <h2 className="title">Add or dit item</h2>
             <DropdownController />
           </div>
         </div>
 
         <div className="col-md-6 capsule">
           <div className="flex-large">
-            <h2 className="title">View Items</h2>
-            <TableData data={data} />
+            <h2 className="title">Home</h2>
+            <TableData items={items} />
           </div>
         </div>
 
         <div className="col-md-6">
           <div className="flex-large">
-            <h2 className="title">Detail</h2>
+            <h2 className="title">Details</h2>
           </div>
         </div>
       </div>

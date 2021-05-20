@@ -10,17 +10,14 @@ const EditForm = () => {
 
   return (
     <Fragment>
-      <br />
+      <h3>Edit Item</h3>
       <Form>
         <Form.Group>
-          <Form.Label>ID</Form.Label>
-          <Form.Control type="text" placeholder="ID" onKeyUp={detectID} />
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Title" />
-          <Form.Label>Body</Form.Label>
-          <Form.Control type="text" placeholder="Body" />
+          <Form.Control className="mb-2" type="text" placeholder="ID of the item" onKeyUp={detectID} />
+          <Form.Control className="mb-2" type="text" placeholder="Insert new title" />
+          <Form.Control type="text" placeholder="Insert new body" />
         </Form.Group>
-        <Button variant="primary" type="submit"> Submit</Button>
+        <Button variant="warning" type="submit">Apply</Button>
       </Form>
 
     </Fragment>

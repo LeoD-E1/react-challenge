@@ -10,7 +10,6 @@ const DropdownController = () => {
 
   const changeState = () => {
     setMode(prevMode => !prevMode)
-    console.log(mode)
   }
 
   return (
@@ -20,11 +19,11 @@ const DropdownController = () => {
         <Form.Check
           type="switch"
           id="custom-switch"
-          label="Edit"
+          label="Edit item"
           onClick={changeState}
         />
       </div>
-
+      <br />
       <div className="form-container">
         {
           mode === false ? (
