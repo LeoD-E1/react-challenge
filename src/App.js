@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DropdownController from './components/DropdownController';
 import TableData from './components/TableData.js';
 import './styles/global.css';
 
 const App = () => {
-
-  const [items, setItems] = useState({});
-
-  //const url = "../../assets/data.json";
-  const bringData = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const json = await res.json();
-    setItems(json)
-  };
-
-  useEffect(() => {
-    bringData();
-  }, []);
-
-  const addItems = (item) => {
-    setItems({
-      ...items,
-      item
-    })
-  }
 
   return (
 
@@ -40,7 +20,7 @@ const App = () => {
         <div className="col-md-6 capsule">
           <div className="flex-large">
             <h2 className="title">Home</h2>
-            <TableData items={items} />
+            <TableData />
           </div>
         </div>
 

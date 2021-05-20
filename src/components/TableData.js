@@ -1,28 +1,28 @@
-import React, { Fragment } from "react";
-import { Card, Button, Spinner } from 'react-bootstrap';
+import React, { Fragment, useState, useEffect } from "react";
+import { Spinner } from 'react-bootstrap';
+import Cards from './Cards'
 import '../styles/TableData.css'
 
-const TableData = (props) => {
+const TableData = () => {
+
+  const [blogs, setBlogs] = useState({})
+
+  const getData = async () => {
+    const data = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const posts = await data.json()
+    setBlogs(posts)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <Fragment>
       <div className="row" id="principal">
         <div className="col-md-12">
-          {props.items.length > 0 ? ( // if have not any data for present, then show a error msje
-            props.items.map(data => (
-              <div key={data.id} className="row">
-                <div className="col-md-12">
-                  <Card body className="mb-2">
-                    {data.title}<br /><br />
-                    <div>
-                      <Button variant="success">View</Button> &nbsp;
-                      <Button variant="primary">Edit</Button> &nbsp;
-                      <Button variant="danger"> Delete</Button>
-                    </div>
-                  </Card>
-                </div>
-              </div>
-            ))
+          {blogs.length > 0 ? ( // if have not any data for present, then show a error msje
+            <Cards blogs={blogs} />
           ) : (
             <div>
               <Spinner animation="border" role="status" variant="primary">
