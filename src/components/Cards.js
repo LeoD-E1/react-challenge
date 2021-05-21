@@ -13,9 +13,9 @@ const Cards = (props) => {
           <Card key={data.id} body className="mb-2">
             {data.title}<br /><br />
             <div>
-              <ViewButton />&nbsp;
-              <EditButton /> &nbsp;
-              <DeleteButton />
+              <ViewButton id={data.id} />&nbsp;
+              <EditButton id={data.id} /> &nbsp;
+              <DeleteButton id={data.id} />
             </div>
           </Card>
         ))

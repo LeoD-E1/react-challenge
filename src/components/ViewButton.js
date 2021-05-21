@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
+import { PostContext } from '../context/PostContext'
 
-const ViewButton = () => {
+const ViewButton = (props) => {
+    const { getPostById } = useContext(PostContext)
+    const id = props.id
+
+    const handleDetail = () => {
+        getPostById(id)
+    }
+
     return (
-        <Button variant="success">View</Button>
+        <Button variant="success" onClick={handleDetail}>View</Button>
     )
 }
 

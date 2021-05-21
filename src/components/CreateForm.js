@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Fragment } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
+import { PostContext } from '../context/PostContext'
 
 const CreateForm = () => {
+
+  const { createPost } = useContext(PostContext)
 
   const [item, setItem] = useState({
     title: '',
@@ -33,26 +36,10 @@ const CreateForm = () => {
     }
   }
 
-  const fetchApi = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: JSON.stringify({
-        title: item.title,
-        body: item.body,
-        userId: item.userId,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-  }
-
   // Function for send a item created by user with a endpoint of json placeholder
   const handleSubmit = (e) => {
     try {
-      fetchApi()
+      createPost(item)
     } catch (err) {
       console.log(err);
     }
