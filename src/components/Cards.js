@@ -9,7 +9,7 @@ const Cards = (props) => {
   return (
     <Fragment>
       {
-        props.blogs.map(data => (
+        props.posts.map(data => (
           <Card key={data.id} body className="mb-2">
             {data.title}<br /><br />
             <div>

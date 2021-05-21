@@ -1,21 +1,30 @@
-import React, { useReducer } from 'react';
-import PostReducer from './PostReducer';
-import PostContext from './PostContex';
-
+import React, { useState } from 'react';
+import { PostContext } from './PostContex';
+import { v4 as uuidv4 } from 'uuid';
 
 const PostState = (props) => {
 
   const initialState = {
     posts: [],
-    detailPost: null
+    detailPost: null,
+    editPost: null,
+    deletePost: null,
+    createPost: {
+      user_id: uuidv4(),
+      title: '',
+      body: ''
+    }
   }
 
-  const [state, dispatch] = useReducer(PostReducer, initialState)
+  const [state, setState] = useState(initialState)
 
   const getPosts = async () => {
     const data = await fetch('https://jsonplaceholder.typicode.com/posts')
     const jsons = await data.json()
-    console.log(jsons)
+    setState({
+      ...state,
+      posts: jsons
+    })
   }
 
   const getPostById = async (id) => {
