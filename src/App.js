@@ -2,12 +2,19 @@ import React from 'react';
 import DropdownController from './components/DropdownController';
 import TableData from './components/TableData.js';
 import './styles/global.css';
+import PostState from './context/PostState';
 
 const App = () => {
 
   return (
 
     <div className="container" >
+
+      <PostState>
+        <TableData />
+      </PostState>
+
+
       <h1>CRUD Blog Client</h1><br />
       <div className="row">
 

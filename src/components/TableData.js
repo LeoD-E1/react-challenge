@@ -1,9 +1,13 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import { Spinner } from 'react-bootstrap';
 import Cards from './Cards'
-import '../styles/TableData.css'
+import '../styles/TableData.css';
+import PostContext from '../context/PostContex'
 
 const TableData = () => {
+
+  const { getPosts } = useContext(PostContext)
+  getPosts()
 
   const [blogs, setBlogs] = useState({})
 

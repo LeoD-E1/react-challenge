@@ -1,6 +1,9 @@
-import React from 'react'
-import { Fragment } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import React, { Fragment } from 'react'
+import { Card } from 'react-bootstrap';
+import DeleteButton from './DeleteButton';
+import ViewButton from './ViewButton';
+import EditButton from './EditButton';
+
 
 const Cards = (props) => {
   return (
@@ -10,9 +13,9 @@ const Cards = (props) => {
           <Card key={data.id} body className="mb-2">
             {data.title}<br /><br />
             <div>
-              <Button variant="success">View</Button> &nbsp;
-              <Button variant="primary">Edit</Button> &nbsp;
-              <Button variant="danger"> Delete</Button>
+              <ViewButton />&nbsp;
+              <EditButton /> &nbsp;
+              <DeleteButton />
             </div>
           </Card>
         ))
