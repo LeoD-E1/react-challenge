@@ -33,6 +33,7 @@ const CreateForm = () => {
     } else {
       handleSubmit()
       e.target.reset();
+      alert('item has been created successfully')
     }
   }
 

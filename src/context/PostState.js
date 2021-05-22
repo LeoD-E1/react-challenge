@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PostContext } from './PostContext';
 
 const PostState = (props) => {
@@ -7,6 +7,7 @@ const PostState = (props) => {
     posts: [],
     detailPost: null,
     editPost: null,
+    switchForm: false
   }
 
   const [state, setState] = useState(initialState)
@@ -23,7 +24,6 @@ const PostState = (props) => {
   const getPostById = async (id) => {
     const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     const json = await data.json()
-    console.log(json)
     setState({
       ...state,
       detailPost: json
@@ -44,7 +44,7 @@ const PostState = (props) => {
     })
     const jsons = await response.json();
     console.log(jsons);
-    setState(jsons)
+    //setState(jsons)
   }
 
   const updatePostById = async (id, item) => {
@@ -68,23 +68,17 @@ const PostState = (props) => {
         method: 'DELETE',
       });
       console.log(response)
-      setState(
-        state.posts.filter((post) => post.id !== id)
-      )
+      // setState(state.posts.filter((user) => user.id !== id))
     } catch (err) {
       console.log(err);
     }
   }
 
-  useEffect(() => {
-    getPosts()
-  }, [])
-
-
   return (
     <PostContext.Provider value={{
       posts: state.posts,
       detailPost: state.detailPost,
+      switchForm: state.switchForm,
       getPosts,
       getPostById,
       updatePostById,
