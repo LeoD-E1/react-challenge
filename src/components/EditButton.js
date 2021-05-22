@@ -14,8 +14,8 @@ const EditButton = (props) => {
   const { getPostById } = useContext(PostContext);
 
   const handleEdit = () => {
-    getPostById(id)
     handleShow()
+    getPostById(id)
   }
 
   return (

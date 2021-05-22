@@ -1,7 +1,7 @@
 import React from 'react';
-import DropdownController from './components/DropdownController';
 import TableData from './components/TableData.js';
 import Details from './components/Details';
+import CreateForm from './components/CreateForm';
 import './styles/global.css';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <div className="row">
         <div className="col-md-6 capsule">
           <div className="flex-large">
-            <DropdownController />
+            <CreateForm />
           </div>
           <br />
           <div className="col-md-6">
