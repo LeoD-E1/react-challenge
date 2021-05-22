@@ -5,9 +5,7 @@ const PostState = (props) => {
 
   const initialState = {
     posts: [],
-    detailPost: null,
-    editPost: null,
-    switchForm: false
+    detailPost: null
   }
 
   const [state, setState] = useState(initialState)
@@ -58,8 +56,11 @@ const PostState = (props) => {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-    const jsons = await response.json()
-    console.log(jsons)
+    const json = await response.json()
+    setState({
+      ...state,
+      editPost: json
+    })
   }
 
   const deletePostById = async (id) => {
@@ -78,7 +79,6 @@ const PostState = (props) => {
     <PostContext.Provider value={{
       posts: state.posts,
       detailPost: state.detailPost,
-      switchForm: state.switchForm,
       getPosts,
       getPostById,
       updatePostById,

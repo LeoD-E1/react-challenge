@@ -21,7 +21,7 @@ const Details = () => {
           <Card style={{ width: '30rem' }}>
             <Card.Body>
               <Card.Title>{detailPost.id}</Card.Title>
-              <Card.Subtitle><b>{detailPost.title}</b></Card.Subtitle>
+              <Card.Subtitle><b>{detailPost.title}</b></Card.Subtitle><br />
               <Card.Text>
                 {detailPost.body}
               </Card.Text>

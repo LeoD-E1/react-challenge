@@ -1,18 +1,36 @@
-import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import { PostContext } from '../context/PostContext'
+import EditForm from './EditForm'
 
 const EditButton = (props) => {
 
-    const { switchForm, updatePostById } = useContext(PostContext)
-    const id = props.id
-    const handleEdit = () => {
-        console.log(typeof (switchForm))
-    }
+  const [show, setShow] = useState(false)
 
-    return (
-        <Button variant="primary" onClick={handleEdit}>Edit</Button>
-    )
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const id = props.id
+  const { getPostById } = useContext(PostContext);
+
+  const handleEdit = () => {
+    getPostById(id)
+    handleShow()
+  }
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleEdit}>Edit</Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton><h3>Edit Item</h3></Modal.Header>
+        <Modal.Body>
+          <EditForm />
+        </Modal.Body>
+      </Modal>
+    </>
+
+  )
 }
 
 export default EditButton;
