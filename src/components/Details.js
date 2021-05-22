@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { PostContext } from '../context/PostContext';
 import { Card } from 'react-bootstrap';
-import EditButton from './EditButton';
-import DeleteButton from './DeleteButton'
 
 const Details = () => {
 
@@ -18,17 +16,13 @@ const Details = () => {
 
         ) : (
 
-          <Card style={{ width: '30rem' }}>
+          <Card style={{ width: '25rem' }}>
             <Card.Body>
               <Card.Title>{detailPost.id}</Card.Title>
               <Card.Subtitle><b>{detailPost.title}</b></Card.Subtitle><br />
               <Card.Text>
                 {detailPost.body}
               </Card.Text>
-              <div>
-                <EditButton /> &nbsp;
-                <DeleteButton />
-              </div>
             </Card.Body>
           </Card>
         )

@@ -3,6 +3,8 @@
   padding: 10px;
 }
 
-.title {
-  color: orangered;
+.supertitle {
+  text-align: center;
+  padding: 20px;
+  background-color: #ebebed;
 }

@@ -14,7 +14,7 @@ const Cards = (props) => {
             {data.title}<br /><br />
             <div>
               <ViewButton id={data.id} />&nbsp;
-              <EditButton id={data.id} /> &nbsp;
+              <EditButton id={data.id} />&nbsp;
               <DeleteButton id={data.id} />
             </div>
           </Card>

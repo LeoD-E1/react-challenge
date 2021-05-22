@@ -38,7 +38,7 @@ const CreateForm = () => {
   }
 
   // Function for send a item created by user with a endpoint of json placeholder
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     try {
       createPost(item)
     } catch (err) {

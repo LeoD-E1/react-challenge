@@ -10,7 +10,7 @@ const App = () => {
 
     <div className="container" >
 
-      <h1>CRUD Blog Client</h1><br />
+      <h1 className="supertitle">CRUD Blog Client</h1><br />
       <div className="row">
         <div className="col-md-6 capsule">
           <div className="flex-large">
@@ -19,7 +19,7 @@ const App = () => {
           <br />
           <div className="col-md-6">
             <div className="flex-large">
-              <h2 className="title">Details</h2>
+              <h2>Details</h2>
               <Details />
             </div>
           </div>
@@ -27,7 +27,7 @@ const App = () => {
 
         <div className="col-md-6 capsule">
           <div className="flex-large">
-            <h2 className="title">Home</h2>
+            <h2>Home</h2>
             <TableData />
           </div>
         </div>

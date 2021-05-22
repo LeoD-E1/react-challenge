@@ -5,25 +5,29 @@ import { PostContext } from '../context/PostContext'
 
 const EditForm = () => {
 
-  const { detailPost } = useContext(PostContext)
+  let { editPost } = useContext(PostContext)
+
+  const handleEdit = () => {
+    editPost = null
+  }
 
   return (
     <Fragment>
       {
-        detailPost == null ? (
+        editPost == null ? (
           <p>No item to Edit</p>
         ) : (
+
           <Form>
             <Form.Group>
-              <Form.Control className="mb-2" type="text" placeholder="ID of the item" defaultValue={detailPost.id} disabled />
-              <Form.Control className="mb-2" type="text" placeholder="Insert new title" defaultValue={detailPost.title} />
-              <Form.Control type="text" placeholder="Insert new body" defaultValue={detailPost.body} />
+              <Form.Control className="mb-2" type="text" placeholder="ID of the item" defaultValue={editPost.id} disabled />
+              <Form.Control className="mb-2" type="text" placeholder="Insert new title" defaultValue={editPost.title} />
+              <Form.Control type="text" placeholder="Insert new body" defaultValue={editPost.body} />
             </Form.Group>
-            <Button variant="warning" type="submit">Apply</Button>
+            <Button variant="warning" type="submit" onClick={handleEdit}>Apply</Button>
           </Form>
         )
       }
-
     </Fragment>
   )
 }

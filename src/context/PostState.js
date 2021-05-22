@@ -3,12 +3,20 @@ import { PostContext } from './PostContext';
 
 const PostState = (props) => {
 
-  const initialState = {
+  let initialState = {
     posts: [],
-    detailPost: null
+    detailPost: null,
+    editPost: null
   }
 
   const [state, setState] = useState(initialState)
+
+  const handleEdit = () => {
+    setState({
+      ...state,
+      editPost: null
+    })
+  }
 
   const getPosts = async () => {
     const data = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -28,6 +36,15 @@ const PostState = (props) => {
     })
   }
 
+  const extractData = async (id) => {
+    const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    const json = await data.json()
+    setState({
+      ...state,
+      editPost: json
+    })
+  }
+
   const createPost = async (item) => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
@@ -40,9 +57,11 @@ const PostState = (props) => {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-    const jsons = await response.json();
-    console.log(jsons);
-    //setState(jsons)
+    const json = await response.json();
+    console.log(json);
+    setState({
+      [state.posts]: json
+    })
   }
 
   const updatePostById = async (id, item) => {
@@ -79,11 +98,14 @@ const PostState = (props) => {
     <PostContext.Provider value={{
       posts: state.posts,
       detailPost: state.detailPost,
+      editPost: state.editPost,
       getPosts,
       getPostById,
       updatePostById,
       deletePostById,
-      createPost
+      createPost,
+      extractData,
+      handleEdit
     }}>
       {props.children}
     </PostContext.Provider>
