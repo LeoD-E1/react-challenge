@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import { PostContext } from '../context/PostContext'
+import { PostContext } from '../../context/PostContext'
 
 const ViewButton = (props) => {
     // Destructured from context postcontext for take the state of getpostbyid

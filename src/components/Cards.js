@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Card } from 'react-bootstrap';
-import DeleteButton from './DeleteButton';
-import ViewButton from './ViewButton';
-import EditButton from './EditButton';
+import DeleteButton from './micro-components/DeleteButton';
+import ViewButton from './micro-components/ViewButton';
+import EditButton from './micro-components/EditButton';
 
 
 const Cards = (props) => {

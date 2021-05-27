@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import { PostContext } from '../context/PostContext'
+import { PostContext } from '../../context/PostContext'
 
 const DeleteButton = (props) => {
 

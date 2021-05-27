@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { PostContext } from '../context/PostContext'
-import EditForm from './EditForm'
+import { PostContext } from '../../context/PostContext'
+import EditForm from '../EditForm'
 
 const EditButton = (props) => {
 
