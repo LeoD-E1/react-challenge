@@ -1,16 +1,16 @@
 import React, { Fragment, useEffect, useContext } from "react";
-import { Spinner } from 'react-bootstrap';
-import Cards from './Cards'
-import '../styles/TableData.css';
-import { PostContext } from '../context/PostContext'
+import { Spinner } from "react-bootstrap";
+import Cards from "./Cards";
+import "../styles/TableData.css";
+import { PostContext } from "../context/PostContext";
 
 const TableData = () => {
-
   const { posts, getPosts } = useContext(PostContext);
 
   useEffect(() => {
-    getPosts()
-  }, [])
+    getPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Fragment>
@@ -24,11 +24,10 @@ const TableData = () => {
                 <span className="sr-only">Loading...</span>
               </Spinner>
             </div>
-          )
-          }
+          )}
         </div>
       </div>
-    </Fragment >
+    </Fragment>
   );
 };
 
