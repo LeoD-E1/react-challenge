@@ -6,7 +6,7 @@ import { PostContext } from '../context/PostContext'
 
 const CreateForm = () => {
 
-  const { createPost } = useContext(PostContext)
+  const { createPost, editPost } = useContext(PostContext)
 
   const [item, setItem] = useState({
     title: '',
