@@ -9,16 +9,18 @@ const Cards = (props) => {
   return (
     <Fragment>
       {
-        props.posts.map(data => (
-          <Card key={data.id} body className="mb-2">
-            {data.title}<br /><br />
-            <div>
-              <ViewButton id={data.id} />&nbsp;
-              <EditButton id={data.id} />&nbsp;
-              <DeleteButton id={data.id} />
-            </div>
-          </Card>
-        ))
+        props.posts.map(
+          data => (
+            <Card key={data.id} body className="mb-2">
+              {data.title}<br /><br />
+              <div>
+                <ViewButton id={data.id} />&nbsp;
+                <EditButton id={data.id} />&nbsp;
+                <DeleteButton id={data.id} />
+              </div>
+            </Card>
+          )
+        )
       }
     </Fragment>
   )
